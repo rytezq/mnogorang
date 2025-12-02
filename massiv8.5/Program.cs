@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace massiv8._2
+namespace massiv8._5
 {
     internal class Program
     {
@@ -12,7 +12,7 @@ namespace massiv8._2
         {
             Console.WriteLine("Создайте квадратный массив");
             int a = Convert.ToInt32(Console.ReadLine());
-            int[,] ms = new int[a,a];
+            int[,] ms = new int[a, a];
             Random random = new Random();
             for (int i = 0; i < ms.GetLength(0); i++)
             {
@@ -23,19 +23,6 @@ namespace massiv8._2
                 }
                 Console.WriteLine();
             }
-            int sum = 0;
-            Console.WriteLine("Сумма главной диагонали");
-            for (int i = 0;i < a; i++)
-            {
-                sum += ms[i, i];
-            }
-            int sump = 0;
-            for (int i = 0; i < a; i++)
-            {
-                sump += ms[i, a - 1- i];
-            }
-            Console.WriteLine($"Главная диагональ равна {sum}");
-            Console.WriteLine($"Главная диагональ равна {sump}");
         }
     }
 }
