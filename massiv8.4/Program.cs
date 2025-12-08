@@ -10,41 +10,40 @@ namespace massiv8._4
     {
         static void Main(string[] args)
         {
-            string[,] crestiki =
+            string[,] lol = new string[3, 3];
+            string[] cresnol = { "X", "O", "-" };
+            Random r = new Random();
+            for (int i = 0; i < lol.GetLength(0); i++)
             {
-                {"X", "O", "X"},
-                {"0", "X", "O"},
-                {"O", "0", "X"},
-            };
-            for (int i = 0; i < crestiki.GetLength(0); i++)
-            {
-                for (int j = 0; j < crestiki.GetLength(1); j++)
+                for (int j = 0; j < lol.GetLength(1); j++)
                 {
-                    Console.Write(crestiki[i, j] + " ");
+                    lol[i, j] = cresnol[r.Next(0, 3)];
+                    Console.Write(lol[i, j] + " ");
                 }
                 Console.WriteLine();
             }
-            string lol = "0";
-            for (int i = 0;i < 3; i++)
+            Console.WriteLine();
+            string letter = "-";
+            for (int i = 0; i < 3; i++)
             {
-                if (crestiki[i, 0] != "0" && crestiki[i, 0] == crestiki[i, 1] && crestiki[i, 1] == crestiki[i, 2])
+                if (lol[i, 0] != "-" && lol[i, 0] == lol[i, 1] && lol[i, 1] == lol[i, 2])
                 {
-                    lol = crestiki[i, 0];
+                    letter = lol[i, 0];
                 }
-                if (crestiki[0, i] != "0" && crestiki[0, i] == crestiki[1, i] && crestiki[1, i] == crestiki[2, i])
+                if (lol[0, i] != "-" && lol[0, i] == lol[1, i] && lol[1, i] == lol[2, i])
                 {
-                    lol = crestiki[0, i];
+                    letter = lol[0, i];
                 }
             }
-            if (crestiki[0, 0] != "0" && crestiki[0, 0] == crestiki[1, 1] && crestiki[1,1] == crestiki[2, 2])
+            if (lol[0, 0] != "-" && lol[0, 0] == lol[1, 1] && lol[1, 1] == lol[2, 2])
             {
-                lol = crestiki[0, 0];
+                letter = lol[0, 0];
             }
-            if (crestiki[0, 2] != "0" && crestiki[0, 0] == crestiki[1, 1] && crestiki[1, 1] == crestiki[2, 0])
+            if (lol[0, 2] != "-" && lol[0, 2] == lol[1, 1] && lol[1, 1] == lol[2, 0])
             {
-                lol = crestiki[0, 2];
+                letter = lol[0, 2];
             }
-            Console.WriteLine(lol == "X" ? "победили крестики" : lol == "O" ? "Победители нолики" : "Победителей нету");
+            Console.WriteLine(letter == "X" ? "Победили крестики" : letter == "O" ? "Победили нолики" : "Нет победителей");
         }
     }
 }
